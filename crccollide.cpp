@@ -15,7 +15,7 @@
 #include <condition_variable>
 #include <set>
 
-#ifdef __x86_64__  // This is defined for x86_64 architecture.
+#ifdef __x86_64__
 #include <x86intrin.h>
 #endif
 
