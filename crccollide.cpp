@@ -14,7 +14,10 @@
 #include <atomic>
 #include <condition_variable>
 #include <set>
+
+#ifdef __x86_64__  // This is defined for x86_64 architecture.
 #include <x86intrin.h>
+#endif
 
 #include "tinyformat.h"
 
@@ -608,7 +611,11 @@ static constexpr long double total_comb() {
     return ret;
 }
 
-static constexpr long double denom = 1.0L / total_comb();
+static
+#ifndef __ARM_ARCH
+constexpr
+#endif
+long double denom = 1.0L / total_comb();
 
 static void ExpandSolutions(result_type& res, const extbasis_type& extbasis, const psol_type& psol, const Vector<ERRORS>& fault, bool allzerobefore) {
     res.reserve(psol.size() * 2);
