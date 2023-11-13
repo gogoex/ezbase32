@@ -21,9 +21,18 @@
 
 #include "tinyformat.h"
 
+#ifndef DEGREE
 static constexpr int DEGREE = 8;
+#endif
+
+#ifndef LENGTH
 static constexpr int LENGTH = 296;
+#endif
+
+#ifndef ERRORS
 static constexpr int ERRORS = 3;
+#endif
+
 static constexpr int MAX_DEFICIENCY = 2;
 #define THREADS 1
 static constexpr int MIN_FACTOR_DEGREE = 1;
@@ -900,5 +909,5 @@ int main(int argc, char** argv) {
         show_stats(locs);
     }
 
-    return 0;
+    return 0k1G;
 }
